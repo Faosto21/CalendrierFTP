@@ -1,0 +1,3 @@
+//MO001-002.TXT ANA00001 TO ANA00002
+CalendrierUniversitaire		TAR	237	nouvelle taille enregistrement : 237
+CalendrierUniversitaire	SalleDeClasse	RUB+		SalleDeClasse est une nouvelle rubrique
