@@ -1,6 +1,9 @@
+from datetime import timedelta
+
+
 class Cours:
     def __init__(
-        self, nom: str, professeur: str, eleves: list, duree: int, materiel: dict
+        self, nom: str, professeur: str, eleves: list, duree: timedelta, materiel: dict
     ):
         self.nom = nom
         self.eleves = eleves

@@ -1,28 +1,33 @@
 from Cours import Cours
-import datetime
+from datetime import timedelta, datetime
 
 
 def CreneauxCommuns(DisponibilitesCommunes: list, cours: Cours):
     """
     Retourne les créneaux communs parmi les disponibilité communes qui ont la bonne durée.
-    Les créneaux communs sont sous forme de tuple de longueur 2 ayant commme première valeur
-    le début du créneau et en deuxième valeur la fin du créneau.
+    Les créneaux communs sont renvoyés avec seulement l'heure de début du créneau
     Ex : On suppose les disponibilites communes sont celles-ci [09,10,11,13,17] et on
     suppose les creneaux sont en heures et le cours dure 2h.
-    CreneauxCommuns([09,10,11,13,17], cours) = [(09,10), (10,11)]
+    CreneauxCommuns([09,10,11,13,17], cours) = [9,10]
     """
-    taille_creneau = 0.5  # 0.5 heure = 30 minutes
-    nb_creneau = (
+    taille_creneau = timedelta(minutes=30)  # 0.5 heure = 30 minutes
+    nb_creneau = int(
         cours.duree / taille_creneau
     )  # nombre de créneaux de 30 minutes pris par le cours (qui est en heures)
+
+    def creneaux_consecutifs_disponibles(debut):
+        """
+        Vérifie si tout les créneaux depuis début jusqu'à début + nb_creneau sont disponibles donc dans DisponibiliteCommunes
+        """
+        for i in range(1, nb_creneau):
+            if not (debut + i * taille_creneau in DisponibilitesCommunes):
+                return False
+        return True
+
     creneaux = [
-        (DisponibilitesCommunes[i + nb_creneau], DisponibilitesCommunes[i])
-        for i in range(len(DisponibilitesCommunes) - nb_creneau)
-        if datetime.timedelta(
-            DisponibilitesCommunes[i + nb_creneau], DisponibilitesCommunes[i]
-        )
-        + 1
-        == cours.duree
+        disponibilite
+        for disponibilite in DisponibilitesCommunes
+        if creneaux_consecutifs_disponibles(disponibilite)
     ]
     return creneaux
 
@@ -65,3 +70,16 @@ def TrouverSalle(
                     ):
                         dict_salles[cours].append(salle)
     return dict_salles
+
+
+if __name__ == "__main__":
+    cours = Cours("Maths", "Maria", [], timedelta(hours=1), {})
+    dispo_communes = [
+        datetime(2025, 11, 7, 9, 0),
+        datetime(2025, 11, 7, 9, 30),
+        datetime(2025, 11, 7, 11, 0),
+        datetime(2025, 11, 7, 12, 0),
+        datetime(2025, 11, 7, 14, 30),
+        datetime(2025, 11, 7, 15, 0),
+    ]
+    print(CreneauxCommuns(dispo_communes, cours))
