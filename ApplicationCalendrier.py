@@ -8,6 +8,7 @@ from typing import Optional
 from Calendrier import Calendrier
 from Eleve import Eleve
 from Professeur import Professeur
+from Cours import Cours
 
 
 class ApplicationCalendrier:
@@ -22,50 +23,11 @@ class ApplicationCalendrier:
         self.fenetre.protocol("WM_DELETE_WINDOW", self.quitter_application)
         self.fenetre.title("Planning")
         self.liste_eleves = list(map(Eleve, Eleve.calendrier.keys()))
-        self.liste_professeur = list(map(Professeur, Professeur.calendrier.keys()))
+        self.liste_professeurs = list(map(Professeur, Professeur.calendrier.keys()))
         self.date = date
         self.setup_boutons_tableau()
-        self.lancement_application()
 
     # Fonctions
-    def setup_boutons_tableau(self):
-        """
-        Création des boutons et du tableau
-        """
-        self.personne_var = StringVar(
-            value=(self.liste_eleves[0].nom if self.liste_eleves else "")
-        )
-        # Barre de navigation
-        self.barre = Frame(self.fenetre)
-        self.barre.pack(fill="x")
-
-        self.btn_precedent = Button(self.barre, text="Semaine précédente")
-        self.label_semaine = Label(self.barre, text="", font=("Helvetica", 10))
-        self.btn_suivant = Button(self.barre, text="Semaine suivante")
-
-        self.btn_precedent.pack(side="left", padx=6)
-        self.label_semaine.pack(side="left", padx=10)
-        self.btn_suivant.pack(side="left", padx=6)
-
-        Label(self.barre, text="  Personne :").pack(side="left")
-        self.menu_personne = ttk.Combobox(
-            self.barre,
-            textvariable=self.personne_var,
-            values=[eleve.nom for eleve in self.liste_eleves],
-            state="readonly",
-            width=12,
-        )
-        self.menu_personne.pack(side="left", padx=6)
-        self.sheet = Sheet(
-            self.fenetre,
-            data=[[""] * 5 for _ in ApplicationCalendrier.slots],
-            headers=["Lun", "Mar", "Mer", "Jeu", "Ven"],
-            row_index=ApplicationCalendrier.slots,
-        )
-
-        self.sheet.set_all_column_widths(200)
-        self.sheet.set_row_heights([25] * len(ApplicationCalendrier.slots))
-        self.sheet.pack(expand=True, fill="both")
 
     def lundi(self):
         """Renvoie le lundi de la semaine de la date donnée"""
@@ -131,11 +93,53 @@ class ApplicationCalendrier:
         """Passe à la semaine suivante"""
         self.date += timedelta(days=7)
         self.gestion_semaine()
+        
 
-    def lancement_application(self):
-        self.btn_precedent.config(command=self.clique_precedent)
-        self.btn_suivant.config(command=self.clique_suivant)
-        self.menu_personne.bind("<<ComboboxSelected>>", self.changer_eleve)
+    def setup_boutons_tableau(self):
+        """
+        Création des boutons et du tableau
+        """
+        self.personne_var = StringVar(
+            value=(self.liste_eleves[0].nom if self.liste_eleves else "")
+        )
+        # Barre de navigation
+        barre = Frame(self.fenetre)
+        barre.pack(fill="x")
+
+        btn_precedent = Button(barre, text="Semaine précédente")
+        self.label_semaine = Label(barre, text="", font=("Helvetica", 10))
+        btn_suivant = Button(barre, text="Semaine suivante")
+        btn_ajout_cours=Button(barre,text="Ajouter un cours")
+
+        btn_precedent.pack(side="left", padx=6)
+        self.label_semaine.pack(side="left", padx=10)
+        btn_suivant.pack(side="left", padx=6)
+        btn_ajout_cours.pack(side="right",padx=6)
+
+        Label(barre, text="  Personne :").pack(side="left")
+        menu_personne = ttk.Combobox(
+            barre,
+            textvariable=self.personne_var,
+            values=[eleve.nom for eleve in self.liste_eleves],
+            state="readonly",
+            width=12,
+        )
+        menu_personne.pack(side="left", padx=6)
+        self.sheet = Sheet(
+            self.fenetre,
+            data=[[""] * 5 for _ in ApplicationCalendrier.slots],
+            headers=["Lun", "Mar", "Mer", "Jeu", "Ven"],
+            row_index=ApplicationCalendrier.slots,
+        )
+
+        self.sheet.set_all_column_widths(200)
+        self.sheet.set_row_heights([25] * len(ApplicationCalendrier.slots))
+        self.sheet.pack(expand=True, fill="both")
+
+        btn_precedent.config(command=self.clique_precedent)
+        btn_suivant.config(command=self.clique_suivant)
+        btn_ajout_cours.config(command=lambda :Cours.bouton_ajouter_cours(self.liste_eleves,self.liste_professeurs))
+        menu_personne.bind("<<ComboboxSelected>>", self.changer_eleve)
         self.gestion_semaine()
 
     def quitter_application(self):
@@ -145,7 +149,7 @@ class ApplicationCalendrier:
         calendrier_eleve = {eleve.nom: eleve.calendrier for eleve in self.liste_eleves}
         with open("./ressources/calendrier_eleves.json", "w", encoding="utf-8") as file:
             json.dump(calendrier_eleve, file, ensure_ascii=False, indent=4)
-        calendrier_prof = {prof.nom: prof.calendrier for prof in self.liste_professeur}
+        calendrier_prof = {prof.nom: prof.calendrier for prof in self.liste_professeurs}
         with open("./ressources/calendrier_profs.json", "w", encoding="utf-8") as file:
             json.dump(calendrier_prof, file, ensure_ascii=False, indent=4)
         self.fenetre.destroy()
