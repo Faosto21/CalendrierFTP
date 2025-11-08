@@ -1,16 +1,19 @@
 from __future__ import annotations
+from collections import defaultdict
 from typing import List
 
 
-class Calendrier(dict):
+class Calendrier(defaultdict):
     """
-    Classe qui hérite de la classe de base dict.
+    Classe qui hérite de la classe de defaultdict.
     Les clés primaires sont des dates sous format iso et la valeur est un dictionnaire.
-    Dont les deux clés sont disponibilie
+    Dont les deux clés sont Disponibilité et Caractéristiques
     """
 
-    def __init_subclass__(cls):
-        return super().__init_subclass__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(
+            lambda: {"Disponibilité": True, "Caractéristiques": {}}, *args, **kwargs
+        )
 
     @staticmethod
     def DisponibilitesCommunes(listes_eleves: List["Eleve"], professeur: "Professeur"):

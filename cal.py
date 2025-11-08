@@ -7,8 +7,9 @@ from tksheet import Sheet
 from datetime import datetime, date, timedelta
 import json
 
+
 # Chargement des dispo depuis le fichier JSON
-chemin_json = "edt_eleves.json"  # ton fichier JSON
+chemin_json = "./ressources/calendrier_eleves.json"  # ton fichier JSON
 
 with open(chemin_json, "r", encoding="utf-8") as f:
     dispo = json.load(f)
@@ -83,7 +84,7 @@ def remplir_planning_eleve(nom: str):
     for r, slot in enumerate(slots):
         for c, d in enumerate(jours):
             key = f"{d.strftime('%Y-%m-%d')} {slot}"
-            if dico.get(key) is True:
+            if dico[key]["Disponibilité"]:
                 sheet.set_cell_data(r, c, "Cours")
 
     sheet.refresh()

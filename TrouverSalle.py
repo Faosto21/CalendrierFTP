@@ -18,6 +18,7 @@ def CreneauxCommuns(DisponibilitesCommunes: list, cours: Cours):
     def creneaux_consecutifs_disponibles(debut):
         """
         Vérifie si tout les créneaux depuis début jusqu'à début + nb_creneau sont disponibles donc dans DisponibiliteCommunes
+        Version temporaire mais si on garde la même idée il faudrait que DisponibilitesCommunes soit un set pour avoir un test d'appartenance plus rapide
         """
         for i in range(1, nb_creneau):
             if not (debut + i * taille_creneau in DisponibilitesCommunes):

@@ -1,22 +1,68 @@
 {
-"1":{
-    "2025-10-07 0900": {"Disponibilité":true},
-    "2025-10-07 1000": {"Disponibilité":true},
-    "2025-10-07 1100": {"Disponibilité":true},
-    "2025-10-08 1400": {"Disponibilité":false},
-    "2025-10-08 1500": {"Disponibilité":false}
-	},
-"2":{
-    "2025-10-07 0900": {"Disponibilité":false},
-    "2025-10-07 1000": {"Disponibilité":false},
-    "2025-10-07 1100": {"Disponibilité":true},
-    "2025-10-08 1400": {"Disponibilité":true},
-    "2025-10-08 1500": {"Disponibilité":true}
-	},
-"3":{
-    "2025-10-07 0900": {"Disponibilité":true},
-    "2025-10-07 1000": {"Disponibilité":true},
-    "2025-10-07 1100": {"Disponibilité":true},
-    "2025-10-08 1400": {"Disponibilité":true},
-    "2025-10-08 1500": {"Disponibilité":true}}
+    "Faosto": {
+        "2025-10-07 09:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-07 10:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-07 11:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-08 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-10-08 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        }
+    },
+    "Phoebus": {
+        "2025-10-07 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-10-07 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-10-07 11:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-08 14:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-08 15:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        }
+    },
+    "Thomas": {
+        "2025-10-07 09:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-07 10:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-07 11:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-08 14:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        },
+        "2025-10-08 15:00": {
+            "Disponibilité": true,
+            "Caractéristique": {}
+        }
+    }
 }
