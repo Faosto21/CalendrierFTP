@@ -56,7 +56,7 @@ class ApplicationCalendrier:
         for r, slot in enumerate(ApplicationCalendrier.slots):
             for c, d in enumerate(jours):
                 key = f"{d.strftime('%Y-%m-%d')} {slot}"
-                if not dico[key]["Disponibilité"]:
+                if key in dico and not dico[key]["Disponibilité"]:
                     self.sheet.set_cell_data(r, c, "Cours")
 
         self.sheet.refresh()
@@ -93,7 +93,6 @@ class ApplicationCalendrier:
         """Passe à la semaine suivante"""
         self.date += timedelta(days=7)
         self.gestion_semaine()
-        
 
     def setup_boutons_tableau(self):
         """
@@ -109,12 +108,12 @@ class ApplicationCalendrier:
         btn_precedent = Button(barre, text="Semaine précédente")
         self.label_semaine = Label(barre, text="", font=("Helvetica", 10))
         btn_suivant = Button(barre, text="Semaine suivante")
-        btn_ajout_cours=Button(barre,text="Ajouter un cours")
+        btn_ajout_cours = Button(barre, text="Ajouter un cours")
 
         btn_precedent.pack(side="left", padx=6)
         self.label_semaine.pack(side="left", padx=10)
         btn_suivant.pack(side="left", padx=6)
-        btn_ajout_cours.pack(side="right",padx=6)
+        btn_ajout_cours.pack(side="right", padx=6)
 
         Label(barre, text="  Personne :").pack(side="left")
         menu_personne = ttk.Combobox(
@@ -138,7 +137,11 @@ class ApplicationCalendrier:
 
         btn_precedent.config(command=self.clique_precedent)
         btn_suivant.config(command=self.clique_suivant)
-        btn_ajout_cours.config(command=lambda :Cours.bouton_ajouter_cours(self.liste_eleves,self.liste_professeurs))
+        btn_ajout_cours.config(
+            command=lambda: Cours.bouton_ajouter_cours(
+                self.liste_eleves, self.liste_professeurs
+            )
+        )
         menu_personne.bind("<<ComboboxSelected>>", self.changer_eleve)
         self.gestion_semaine()
 
@@ -161,7 +164,7 @@ if __name__ == "__main__":
     Thomas = Eleve("Thomas")
 
     Gledel = Professeur("Gledel")
-    print(Calendrier.DisponibilitesCommunes([Faosto, Phoebus, Thomas], Gledel))
+    print(len(Calendrier.DisponibilitesCommunes([Faosto, Phoebus, Thomas], Gledel)))
     fenetre = Tk()
     app = ApplicationCalendrier(fenetre)
     fenetre.geometry("1280x720")
