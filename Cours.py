@@ -1,10 +1,12 @@
 from datetime import timedelta
+import json
 from tkinter import *
 import tkinter.ttk as ttk
 
 from Eleve import Eleve
 from Professeur import Professeur
 from Calendrier import Calendrier
+from Salle import Salle
 
 
 class Cours:
@@ -23,19 +25,69 @@ class Cours:
         self.duree = duree
         self.materiel = materiel
 
+    def __repr__(self):
+        return self.nom
+
     def __str__(self):
         return f"Cours(nom={self.nom}, professeur={self.professeur}, eleves={self.eleves}, duree={self.duree}, materiel={self.materiel})"
 
-    def placer_cours(self):
-        # Juste pour tester pour l'instant
-        print(self)
+    @staticmethod
+    def rentrer_cours(resultats):
+        for cours, (salle, creneaux) in resultats.items():
+            for creneau in creneaux:
+                cours.professeur.calendrier[creneau.strftime("%Y-%m-%d %H:%M")] = {
+                    "Disponibilité": False,
+                    "Caractéristique": cours.nom,
+                }
+                salle.calendrier[creneau.strftime("%Y-%m-%d %H:%M")] = False
+                for eleve in cours.eleves:
+                    eleve.calendrier[creneau.strftime("%Y-%m-%d %H:%M")] = {
+                        "Disponibilité": False,
+                        "Caractéristique": cours.nom,
+                    }
+
+    @staticmethod
+    def afficher_choix(resultats: dict):
+        win = Toplevel()
+        win.title("Resultats recherche créneaux/salles")
+        approved = {"value": False}
+        ttk.Label(win, text="Résultats trouvés :", font=("Arial", 14, "bold")).pack(
+            pady=10
+        )
+
+        frame = ttk.Frame(win)
+        frame.pack(pady=5)
+
+        for cours, (salle, creneau) in resultats.items():
+            text = f"{cours.nom} → Salle: {salle.nom}, Heure de début: {creneau[0].strftime("%Y-%m-%d %H:%M")},Heure de fin: {(creneau[-1]+timedelta(minutes=30)).strftime("%Y-%m-%d %H:%M")}"
+            ttk.Label(frame, text=text, font=("Arial", 12)).pack(anchor="w")
+
+        def approve_and_close():
+            approved["value"] = True
+            win.destroy()
+
+        def reject_and_close():
+            win.destroy()
+
+        ttk.Button(win, text="Approuver", command=approve_and_close).pack(pady=20)
+        ttk.Button(win, text="Annuler", command=reject_and_close).pack(pady=20)
+
+        win.grab_set()
+        win.wait_window()
+
+        return approved["value"]
 
     @staticmethod
     def bouton_ajouter_cours(
-        liste_eleves: list[Eleve], liste_professeurs: list[Professeur]
+        liste_eleves: list[Eleve],
+        liste_professeurs: list[Professeur],
+        liste_salles=list[Salle],
     ):
+
         root = Tk()
         root.title("Ajout d'un cours")
+        prof_dict = {prof.nom: prof for prof in liste_professeurs}
+        liste_cours = []
 
         nom_label = Label(root, text="Nom du cours :")
         nom_entry = Entry(root)
@@ -88,29 +140,58 @@ class Cours:
 
         ordi_var = BooleanVar(barre)
         Checkbutton(
-            barre, text="Ordinateur", variable=ordi_var, onvalue=True, offvalue=False
+            barre, text="Ordinateurs", variable=ordi_var, onvalue=True, offvalue=False
         ).pack(side="left")
-        retro_var = BooleanVar(barre)
+        projecteur_var = BooleanVar(barre)
         Checkbutton(
             barre,
-            text="Rétroprojecteur",
-            variable=retro_var,
+            text="Projecteur",
+            variable=projecteur_var,
             onvalue=True,
             offvalue=False,
         ).pack(side="left")
-        bouton_creer_cours = Button(
-            root,
-            text="Chercher créneau",
-            command=lambda: Cours(
+        listbox = Listbox(root, height=10, width=40)
+
+        def refresh_listbox():
+            listbox.delete(0, END)
+            for cours in liste_cours:
+                listbox.insert(END, cours.nom)
+
+        def ajouter_cours():
+            nouveau_cours = Cours(
                 nom_entry.get(),
-                Professeur(professeur_var.get()),
+                prof_dict[professeur_var.get()],
                 eleves_participants(),
                 mapping_duree[duree_var.get()],
-                {"Ordinateur": ordi_var.get(), "Rétroprojecteur": retro_var.get()},
-            ).placer_cours(),
+                {"Ordinateurs": ordi_var.get(), "Projecteur": projecteur_var.get()},
+            )
+            liste_cours.append(nouveau_cours)
+            refresh_listbox()
+
+        listbox.pack(pady=10)
+        bouton_ajouter_cours = Button(
+            root,
+            text="Ajouter cours",
+            command=ajouter_cours,
         )
-        bouton_creer_cours.pack()
-        # A finir en rajoutant des widgets pour le matériel
+        bouton_ajouter_cours.pack()
+
+        def chercher_creneaux():
+            from TrouverSalle import TrouverSalle
+
+            resultats = TrouverSalle(liste_salles, liste_cours)
+
+            approved = Cours.afficher_choix(resultats)
+
+            if approved:
+                Cours.rentrer_cours(resultats)
+
+        bouton_chercher_cours = Button(
+            root,
+            text="Chercher créneaux",
+            command=chercher_creneaux,
+        )
+        bouton_chercher_cours.pack()
 
         root.geometry("1280x720")
         root.mainloop()

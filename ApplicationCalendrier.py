@@ -3,11 +3,11 @@ import tkinter.ttk as ttk
 from tksheet import Sheet
 import json
 from datetime import datetime, timedelta, date
-from typing import Optional
 
 from Calendrier import Calendrier
 from Eleve import Eleve
 from Professeur import Professeur
+from Salle import Salle
 from Cours import Cours
 
 
@@ -16,7 +16,7 @@ class ApplicationCalendrier:
     Classe de l'application du calendrier
     """
 
-    slots = [f"{h:02d}:{m:02d}" for h in range(8, 19) for m in (0, 30)]
+    slots = [f"{h:02d}:{m:02d}" for h in range(8, 18) for m in (0, 30)]
 
     def __init__(self, fenetre, date=datetime.today()):
         self.fenetre = fenetre
@@ -24,6 +24,11 @@ class ApplicationCalendrier:
         self.fenetre.title("Planning")
         self.liste_eleves = list(map(Eleve, Eleve.calendrier.keys()))
         self.liste_professeurs = list(map(Professeur, Professeur.calendrier.keys()))
+        self.personnes = {
+            **{e.nom: e for e in self.liste_eleves},
+            **{p.nom: p for p in self.liste_professeurs},
+        }
+        self.liste_salles = list(map(Salle, Salle.planning_salles.keys()))
         self.date = date
         self.setup_boutons_tableau()
 
@@ -42,14 +47,13 @@ class ApplicationCalendrier:
     # SEMAINE_MIN = lundi(JOUR_MIN)
     # SEMAINE_MAX = lundi(JOUR_MAX)
 
-    def remplir_planning_eleve(self, eleve: Eleve):
+    def remplir_planning(self, personne: str):
         """Remplit le tableau pour eleve sur la semaine courante (Lun→Ven)"""
         # Vider le tableau
+        dico = self.personnes[personne].calendrier
         for r in range(len(ApplicationCalendrier.slots)):
             for c in range(5):
                 self.sheet.set_cell_data(r, c, "")
-
-        dico = eleve.calendrier
         jours = [self.lundi() + timedelta(days=i) for i in range(5)]
 
         # Remplir le tableau
@@ -57,7 +61,10 @@ class ApplicationCalendrier:
             for c, d in enumerate(jours):
                 key = f"{d.strftime('%Y-%m-%d')} {slot}"
                 if key in dico and not dico[key]["Disponibilité"]:
-                    self.sheet.set_cell_data(r, c, "Cours")
+                    if not dico[key]["Caractéristique"] == {}:
+                        self.sheet.set_cell_data(r, c, dico[key]["Caractéristique"])
+                    else:
+                        self.sheet.set_cell_data(r, c, "Occupé")
 
         self.sheet.refresh()
 
@@ -77,12 +84,12 @@ class ApplicationCalendrier:
             text=f"Semaine du {self.lundi().strftime('%d/%m/%Y')} au {week_end.strftime('%d/%m/%Y')}"
         )
         if self.personne_var.get():
-            self.remplir_planning_eleve(Eleve(self.personne_var.get()))
+            self.remplir_planning(self.personne_var.get())
 
-    def changer_eleve(self, event=None):
+    def changer_personne(self, event=None):
         """Met à jour l'emploi du temps quand on change de personne"""
         if self.personne_var.get():
-            self.remplir_planning_eleve(Eleve(self.personne_var.get()))
+            self.remplir_planning(self.personne_var.get())
 
     def clique_precedent(self):
         """Passe à la semaine précédente"""
@@ -116,10 +123,13 @@ class ApplicationCalendrier:
         btn_ajout_cours.pack(side="right", padx=6)
 
         Label(barre, text="  Personne :").pack(side="left")
+        listes_personnes = [eleve.nom for eleve in self.liste_eleves] + [
+            professeur.nom for professeur in self.liste_professeurs
+        ]
         menu_personne = ttk.Combobox(
             barre,
             textvariable=self.personne_var,
-            values=[eleve.nom for eleve in self.liste_eleves],
+            values=listes_personnes,
             state="readonly",
             width=12,
         )
@@ -139,10 +149,10 @@ class ApplicationCalendrier:
         btn_suivant.config(command=self.clique_suivant)
         btn_ajout_cours.config(
             command=lambda: Cours.bouton_ajouter_cours(
-                self.liste_eleves, self.liste_professeurs
+                self.liste_eleves, self.liste_professeurs, self.liste_salles
             )
         )
-        menu_personne.bind("<<ComboboxSelected>>", self.changer_eleve)
+        menu_personne.bind("<<ComboboxSelected>>", self.changer_personne)
         self.gestion_semaine()
 
     def quitter_application(self):
@@ -155,16 +165,21 @@ class ApplicationCalendrier:
         calendrier_prof = {prof.nom: prof.calendrier for prof in self.liste_professeurs}
         with open("./ressources/calendrier_profs.json", "w", encoding="utf-8") as file:
             json.dump(calendrier_prof, file, ensure_ascii=False, indent=4)
+        planning_salles = {
+            salle.nom: {
+                "Disponibilité": salle.calendrier,
+                "Capacité": salle.capacite,
+                "Caractéristiques": salle.caracteristiques,
+            }
+            for salle in self.liste_salles
+        }
+        print(planning_salles)
+        with open("./ressources/PlanningSalles.json", "w", encoding="utf-8") as file:
+            json.dump(planning_salles, file, ensure_ascii=False, indent=4)
         self.fenetre.destroy()
 
 
 if __name__ == "__main__":
-    Faosto = Eleve("Faosto")
-    Phoebus = Eleve("Phoebus")
-    Thomas = Eleve("Thomas")
-
-    Gledel = Professeur("Gledel")
-    print(len(Calendrier.DisponibilitesCommunes([Faosto, Phoebus, Thomas], Gledel)))
     fenetre = Tk()
     app = ApplicationCalendrier(fenetre)
     fenetre.geometry("1280x720")

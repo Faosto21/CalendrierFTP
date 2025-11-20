@@ -1,5 +1,8 @@
-from Cours import Cours
 from datetime import timedelta, datetime
+
+from Cours import Cours
+from Calendrier import Calendrier
+from Salle import Salle
 
 
 def CreneauxCommuns(DisponibilitesCommunes: list, cours: Cours):
@@ -26,61 +29,100 @@ def CreneauxCommuns(DisponibilitesCommunes: list, cours: Cours):
         return True
 
     creneaux = [
-        disponibilite
+        [disponibilite + i * taille_creneau for i in range(nb_creneau)]
         for disponibilite in DisponibilitesCommunes
         if creneaux_consecutifs_disponibles(disponibilite)
     ]
     return creneaux
 
 
-def TrouverSalle(
-    CalendrierSalles: dict, DisponibilitesCommunes: list[str], ListeCours: list[Cours]
-):
+def TrouverSalle(liste_salles: list[Salle], ListeCours: list[Cours]):
     """
     Trouve une salle disponible pour une date commune avec une capacité suffisante pour accueillir tous les invités
-    ainsi que le matériel nécessaire pour le cours. Renvoie le planning des salles modifié.
+    ainsi que le matériel nécessaire pour le cours.
+    Retourne un dictionnaire avec en clé les cours et en valeur les salles disponibles pour chaque cours.
+    Par exemple : {cours1 : [(salle1, [9, 930]), (salle2, [10, 1030])], cours2 : [(salle2, [10, 1030]), (salle3, [11, 1130])]}
     """
     # on créé un dictionnaire pour stocker les salles dispo selon les cours
     dict_salles = {}  # cours en clé et les salles en valeurs
     for cours in ListeCours:
         dict_salles[cours] = []
-        creneaux_communs = CreneauxCommuns(DisponibilitesCommunes, cours)
-        for (
-            salle
-        ) in CalendrierSalles.keys():  # les clés du calendrier sont les objets salle
+        dispo = Calendrier.DisponibilitesCommunes(cours.eleves, cours.professeur)
+        creneaux_communs = CreneauxCommuns(dispo, cours)
+        for salle in liste_salles:
             # on vérifie que la salle peut accueillir le cours (capacité et matériel nécessaire)
-            if not (
-                all(
-                    salle.caracteristiques.get(item, False) == besoin
-                    for item, besoin in cours.materiel.items()
-                )
-                and salle.capacite < len(cours.eleves)
-            ):
-                break
-            dict_salles[cours] = (
-                []
-            )  # on créé la clé "cours" et on initialise avec une liste vide qu'on remplira avec les salles valides
+            # si la salle n'a pas la capacité ou le matériel requis, on passe à la suivante
+            if salle.capacite < len(cours.eleves):
+                continue
+            check = True
+            for besoin, booleen in cours.materiel.items():
+                if booleen and not salle.caracteristiques[besoin]:
+                    check = False
+                    break
+            # dict_salles[cours] a été initialisé plus haut ; on ajoute les (salle, creneau) valides
+            if not check:
+                continue
             for creneau in creneaux_communs:
-                # on garde les créneaux communs aux créneaux communs (issues de calendrier_professeur et calendrier_eleves)
-                # et aux créneaux disponibles dans le calendrier_salles
-                for calendrier in CalendrierSalles.values():
-                    # on vérifie que le début et la fin du créneau sont disponibles dans notre calendrier
-                    if (
-                        calendrier[creneau[0]]["Disponibilité"]
-                        and calendrier[creneau[1]]["Disponibilité"]
-                    ):
-                        dict_salles[cours].append(salle)
-    return dict_salles
+                # on garde les créneaux communs (prof/élèves) qui sont aussi disponibles dans le calendrier de cette salle
+                if all(
+                    not c.strftime("%Y-%m-%d %H:%M") in salle.calendrier
+                    for c in creneau
+                ):
 
+                    dict_salles[cours].append((salle, creneau))
 
-if __name__ == "__main__":
-    cours = Cours("Maths", "Maria", [], timedelta(hours=1), {})
-    dispo_communes = [
-        datetime(2025, 11, 7, 9, 0),
-        datetime(2025, 11, 7, 9, 30),
-        datetime(2025, 11, 7, 11, 0),
-        datetime(2025, 11, 7, 12, 0),
-        datetime(2025, 11, 7, 14, 30),
-        datetime(2025, 11, 7, 15, 0),
-    ]
-    print(CreneauxCommuns(dispo_communes, cours))
+    def ChoisirSalle(dict_salles: dict):
+        """
+        Choisit pour chaque cours la première salle/creneau candidat qui ne crée pas de conflit
+        (même salle/creneau déjà prise, élèves pris sur ce créneau, ou professeur pris sur ce créneau).
+        Retourne un nouveau dict mapping cours -> (salle, creneau) ou None si aucun choix possible.
+        """
+        choix = {}
+
+        # structures pour détecter les conflits rapidement
+        prises_salles_creneaux = set()  # set of (salle, tuple(creneau))
+        prises_eleves_par_instant = {}  # instant -> set(eleves)
+        prises_profs_par_instant = {}  # instant -> set(profs)
+
+        for cours, candidates in dict_salles.items():
+            chosen = None
+            for salle, creneau in candidates:
+                # normaliser le creneau pour le mettre dans des sets (tuple d'instants)
+                creneau_key = tuple(creneau)
+                conflict = False
+
+                # 1) Vérifier si (salle, creneau) est déjà pris
+                if (salle, creneau_key) in prises_salles_creneaux:
+                    conflict = True
+
+                # 2) Vérifier conflit élèves et profs : aucun élève du cours ou le prof du cours ne doit être pris sur un des instants
+                if not conflict:
+                    eleves_set = set(cours.eleves)
+                    for instant in creneau_key:
+                        if not prises_eleves_par_instant.get(instant, set()).isdisjoint(
+                            eleves_set
+                        ) or cours.professeur in prises_profs_par_instant.get(
+                            instant, set()
+                        ):
+                            conflict = True
+                            break
+
+                if not conflict:
+                    # on choisit cette salle/creneau
+                    chosen = (salle, creneau)
+                    prises_salles_creneaux.add((salle, creneau_key))
+                    for instant in creneau_key:
+                        prises_eleves_par_instant.setdefault(instant, set()).update(
+                            eleves_set
+                        )
+                        prises_profs_par_instant.setdefault(instant, set()).add(
+                            cours.professeur
+                        )
+                    break
+
+            choix[cours] = chosen
+
+        return choix
+
+    resp = ChoisirSalle(dict_salles)
+    return resp

@@ -21,9 +21,9 @@ class Calendrier(dict):
         La renvoie sous la forme d'une liste des horaires de disponibilité en commun.
 
         """
-        slots = [f"{h:02d}:{m:02d}" for h in range(8, 19) for m in (0, 30)]
+        slots = [f"{h:02d}:{m:02d}" for h in range(8, 18) for m in (0, 30)]
 
-        date_dispo = date.today()
+        date_dispo = date(2025, 11, 22)
         dispo_commune = []
         for _ in range(4):
             date_dispo += timedelta(
@@ -38,11 +38,14 @@ class Calendrier(dict):
                     and not professeur.calendrier[creneau]["Disponibilité"]
                 ):
                     continue
+                dispo = True
                 for eleve in listes_eleves:
                     if (
                         creneau in eleve.calendrier
                         and not eleve.calendrier[creneau]["Disponibilité"]
                     ):
+                        dispo = False
                         break
+                if dispo:
                     dispo_commune.append(datetime.fromisoformat(creneau))
         return dispo_commune

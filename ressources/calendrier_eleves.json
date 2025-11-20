@@ -1,67 +1,1151 @@
 {
     "Faosto": {
-        "2025-10-07 09:00": {
-            "Disponibilité": true,
-            "Caractéristique": {}
-        },
-        "2025-10-07 10:00": {
-            "Disponibilité": true,
-            "Caractéristique": {}
-        },
-        "2025-10-07 11:00": {
-            "Disponibilité": true,
-            "Caractéristique": {}
-        },
-        "2025-10-08 14:00": {
+        "2025-11-24 09:00": {
             "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-08 15:00": {
+        "2025-11-24 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 17:30": {
             "Disponibilité": false,
             "Caractéristique": {}
         }
     },
     "Phoebus": {
-        "2025-10-07 09:00": {
+        "2025-11-24 09:00": {
             "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-07 10:00": {
+        "2025-11-24 09:30": {
             "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-07 11:00": {
-            "Disponibilité": true,
+        "2025-11-24 10:00": {
+            "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-08 14:00": {
-            "Disponibilité": true,
+        "2025-11-24 10:30": {
+            "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-08 15:00": {
-            "Disponibilité": true,
+        "2025-11-24 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 17:30": {
+            "Disponibilité": false,
             "Caractéristique": {}
         }
     },
     "Thomas": {
-        "2025-10-07 09:00": {
-            "Disponibilité": true,
+        "2025-11-24 08:00": {
+            "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-07 10:00": {
-            "Disponibilité": true,
+        "2025-11-24 08:30": {
+            "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-07 11:00": {
-            "Disponibilité": true,
+        "2025-11-24 09:00": {
+            "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-08 14:00": {
-            "Disponibilité": true,
+        "2025-11-24 09:30": {
+            "Disponibilité": false,
             "Caractéristique": {}
         },
-        "2025-10-08 15:00": {
-            "Disponibilité": true,
+        "2025-11-24 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-24 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-25 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-26 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-27 17:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 10:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 10:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 11:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 11:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 12:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 12:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 13:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 13:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 14:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 14:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 15:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 15:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 16:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 16:30": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 17:00": {
+            "Disponibilité": false,
+            "Caractéristique": {}
+        },
+        "2025-11-28 17:30": {
+            "Disponibilité": false,
             "Caractéristique": {}
         }
     }
