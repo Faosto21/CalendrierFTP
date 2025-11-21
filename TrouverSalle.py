@@ -147,7 +147,8 @@ if __name__ == "__main__":
     ]
     eleves2 = [
         Eleve("Faosto"),
-        Eleve("Thomas")
+        Eleve("Thomas"),
+        Eleve("Phoebus")
     ]
     professeur = Professeur("Gledel")
     besoins_materiel1 = {"Projecteur": True, "Ordinateurs": False}

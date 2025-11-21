@@ -2,7 +2,6 @@ from __future__ import annotations
 from typing import List
 from datetime import datetime, timedelta, date
 
-
 class Calendrier(dict):
     """
     Classe qui hérite de la classe de dict.
@@ -14,7 +13,7 @@ class Calendrier(dict):
         super().__init__(*args, **kwargs)
 
     @staticmethod
-    def DisponibilitesCommunes(listes_eleves: List["Eleve"], professeur: "Professeur"):
+    def DisponibilitesCommunes(listes_eleves: List["Eleve"], professeur: "Professeur") -> List[datetime]:
         """
         Fonction qui renvoie la liste des disponibilités communes entre une liste d'élèves et un professeur
         entre le lendemain de la date actuelle et 8 semaines plus tard.
@@ -23,9 +22,9 @@ class Calendrier(dict):
         """
         slots = [f"{h:02d}:{m:02d}" for h in range(8, 18) for m in (0, 30)]
 
-        date_dispo = date(2025, 11, 22)
+        date_dispo = date.today()
         dispo_commune = []
-        for _ in range(4):
+        for _ in range(28): # On cherche sur 8 semaines (28 jours ouvrés)
             date_dispo += timedelta(
                 days=1
             )  # On commence à chercher à partir du lendemain
@@ -49,3 +48,17 @@ class Calendrier(dict):
                 if dispo:
                     dispo_commune.append(datetime.fromisoformat(creneau))
         return dispo_commune
+
+if __name__ == "__main__":
+    from Salle import Salle
+    from Eleve import Eleve
+    from Professeur import Professeur
+    eleves = [
+        Eleve("Faosto"),
+        Eleve("Phoebus"),
+        Eleve("Thomas")
+    ]
+    professeur = Professeur("Gledel")
+    salle = Salle("Salle1")
+    dispos = Calendrier.DisponibilitesCommunes(eleves, professeur)
+    print(dispos[0:10])

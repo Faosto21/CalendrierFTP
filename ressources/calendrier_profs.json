@@ -701,6 +701,22 @@
         "2025-11-28 17:30": {
             "Disponibilité": false,
             "Caractéristique": {}
+        },
+        "2025-12-01 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
+        },
+        "2025-12-01 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
+        },
+        "2025-12-01 09:00": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
+        },
+        "2025-12-01 09:30": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
         }
     },
     "Breuils": {
