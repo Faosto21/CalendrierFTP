@@ -24,11 +24,12 @@ class ApplicationCalendrier:
         self.fenetre.title("Planning")
         self.liste_eleves = list(map(Eleve, Eleve.calendrier.keys()))
         self.liste_professeurs = list(map(Professeur, Professeur.calendrier.keys()))
+        self.liste_salles = list(map(Salle, Salle.calendrier.keys()))
         self.personnes = {
             **{e.nom: e for e in self.liste_eleves},
             **{p.nom: p for p in self.liste_professeurs},
+            **{s.nom: s for s in self.liste_salles}
         }
-        self.liste_salles = list(map(Salle, Salle.planning_salles.keys()))
         self.date = date
         self.setup_boutons_tableau()
 
@@ -125,7 +126,7 @@ class ApplicationCalendrier:
         Label(barre, text="  Personne :").pack(side="left")
         listes_personnes = [eleve.nom for eleve in self.liste_eleves] + [
             professeur.nom for professeur in self.liste_professeurs
-        ]
+        ] + [salle.nom for salle in self.liste_salles]
         menu_personne = ttk.Combobox(
             barre,
             textvariable=self.personne_var,
@@ -165,17 +166,9 @@ class ApplicationCalendrier:
         calendrier_prof = {prof.nom: prof.calendrier for prof in self.liste_professeurs}
         with open("./ressources/calendrier_profs.json", "w", encoding="utf-8") as file:
             json.dump(calendrier_prof, file, ensure_ascii=False, indent=4)
-        planning_salles = {
-            salle.nom: {
-                "Disponibilité": salle.calendrier,
-                "Capacité": salle.capacite,
-                "Caractéristiques": salle.caracteristiques,
-            }
-            for salle in self.liste_salles
-        }
-        print(planning_salles)
-        with open("./ressources/PlanningSalles.json", "w", encoding="utf-8") as file:
-            json.dump(planning_salles, file, ensure_ascii=False, indent=4)
+        calendrier_salles = {salle.nom: salle.calendrier for salle in self.liste_salles}
+        with open("./ressources/calendrier_salles.json", "w", encoding="utf-8") as file:
+            json.dump(calendrier_salles, file, ensure_ascii=False, indent=4)
         self.fenetre.destroy()
 
 

@@ -6,13 +6,13 @@ from Calendrier import Calendrier
 
 class Salle:
     with open("ressources/calendrier_salles.json", encoding="utf-8") as file:
-        planning_salles = json.load(file)
-
+        calendrier = json.load(file)
+        
     def __init__(self, nom):
         self.nom = nom
-        self.capacite = Salle.planning_salles[nom]["2025-11-24 08:00"]["Capacité"]
-        self.caracteristiques = Salle.planning_salles[nom]["2025-11-24 08:00"]["Caractéristique"]
-        self.calendrier = Calendrier(Salle.planning_salles)
+        self.capacite = Salle.calendrier[nom]["2025-11-24 08:00"]["Capacité"]
+        self.caracteristiques = Salle.calendrier[nom]["2025-11-24 08:00"]["Caractéristique"]
+        self.calendrier = Calendrier(Salle.calendrier[nom])
 
     def __repr__(self):
         return self.nom
@@ -22,7 +22,7 @@ class Salle:
 
 if __name__ == "__main__":
     salle = Salle("Salle1")
-    print(salle)
+    print(salle.nom)
     print(salle.capacite)
     print(salle.caracteristiques)
-    print(salle.calendrier["Salle1"].keys())
+    print(salle.calendrier)

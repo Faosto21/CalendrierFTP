@@ -33,20 +33,6 @@ class Cours:
 
     @staticmethod
     def rentrer_cours(resultats):
-        for cours, (salle, creneaux) in resultats.items():
-            for creneau in creneaux:
-                cours.professeur.calendrier[creneau.strftime("%Y-%m-%d %H:%M")] = {
-                    "Disponibilité": False,
-                    "Caractéristique": cours.nom,
-                }
-                salle.calendrier[creneau.strftime("%Y-%m-%d %H:%M")] = False
-                for eleve in cours.eleves:
-                    eleve.calendrier[creneau.strftime("%Y-%m-%d %H:%M")] = {
-                        "Disponibilité": False,
-                        "Caractéristique": cours.nom,
-                    }
-    @staticmethod
-    def rentrer_cours(resultats):
         for cours, val in resultats.items(): # on n'itere pas sur (salle, creneaux) car peut être None
             if not val:
                 continue

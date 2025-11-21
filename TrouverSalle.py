@@ -65,8 +65,8 @@ def TrouverSalle(liste_salles: list[Salle], liste_cours: list[Cours]):
             for creneau in creneaux_communs:
                 # on garde les créneaux communs (prof/élèves) qui sont aussi disponibles dans le calendrier de cette salle
                 if all(
-                    salle.calendrier[salle.nom][creneau[i].strftime("%Y-%m-%d %H:%M")]["Disponibilité"] 
-                    for i in range(len(creneau)) if creneau[i].strftime("%Y-%m-%d %H:%M") in salle.calendrier[salle.nom]
+                    salle.calendrier[creneau[i].strftime("%Y-%m-%d %H:%M")]["Disponibilité"] 
+                    for i in range(len(creneau)) if creneau[i].strftime("%Y-%m-%d %H:%M") in salle.calendrier
                 ):
                     dict_salles[cours].append((salle, creneau))
 

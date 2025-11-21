@@ -2,22 +2,22 @@
     "Gledel": {
         "2025-11-24 10:00": {
             "Disponibilité": false,
-            "Caractéristique": "info"
+            "Caractéristique": "maths"
         },
         "2025-11-24 10:30": {
             "Disponibilité": false,
-            "Caractéristique": "info"
+            "Caractéristique": "maths"
         },
         "2025-11-24 11:00": {
             "Disponibilité": false,
-            "Caractéristique": "yolostyle"
+            "Caractéristique": "INFO_901"
         },
         "2025-11-24 11:30": {
             "Disponibilité": false,
-            "Caractéristique": "yolostyle"
+            "Caractéristique": "INFO_901"
         },
         "2025-11-24 12:00": {
-            "Disponibilité": false,
+            "Disponibilité": true,
             "Caractéristique": {}
         },
         "2025-11-24 12:30": {
