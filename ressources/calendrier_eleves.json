@@ -10,19 +10,19 @@
         },
         "2025-11-24 10:00": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "info"
         },
         "2025-11-24 10:30": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "info"
         },
         "2025-11-24 11:00": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "yolostyle"
         },
         "2025-11-24 11:30": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "yolostyle"
         },
         "2025-11-24 12:00": {
             "Disponibilité": false,
@@ -379,6 +379,14 @@
         "2025-11-28 17:30": {
             "Disponibilité": false,
             "Caractéristique": {}
+        },
+        "2025-11-24 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
+        },
+        "2025-11-24 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
         }
     },
     "Phoebus": {
@@ -753,6 +761,14 @@
         "2025-11-28 17:30": {
             "Disponibilité": false,
             "Caractéristique": {}
+        },
+        "2025-11-24 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
+        },
+        "2025-11-24 08:30": {
+            "Disponibilité": false,
+            "Caractéristique": "maths"
         }
     },
     "Thomas": {
@@ -774,19 +790,19 @@
         },
         "2025-11-24 10:00": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "info"
         },
         "2025-11-24 10:30": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "info"
         },
         "2025-11-24 11:00": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "yolostyle"
         },
         "2025-11-24 11:30": {
             "Disponibilité": false,
-            "Caractéristique": {}
+            "Caractéristique": "yolostyle"
         },
         "2025-11-24 12:00": {
             "Disponibilité": false,

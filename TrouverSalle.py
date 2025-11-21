@@ -14,10 +14,10 @@ def CreneauxCommuns(DisponibilitesCommunes: list, cours: Cours):
     CreneauxCommuns([09,10,11,13,17], cours) = [9,10]
     """
     taille_creneau = timedelta(minutes=30)  # 0.5 heure = 30 minutes
+    duree = cours.duree
     nb_creneau = int(
-        cours.duree / taille_creneau
-    )  # nombre de créneaux de 30 minutes pris par le cours (qui est en heures)
-
+        duree / taille_creneau
+        ) # nombre de créneaux de 30 minutes pris par le cours (qui est en heures)
     def creneaux_consecutifs_disponibles(debut):
         """
         Vérifie si tout les créneaux depuis début jusqu'à début + nb_creneau sont disponibles donc dans DisponibiliteCommunes
@@ -36,7 +36,7 @@ def CreneauxCommuns(DisponibilitesCommunes: list, cours: Cours):
     return creneaux
 
 
-def TrouverSalle(liste_salles: list[Salle], ListeCours: list[Cours]):
+def TrouverSalle(liste_salles: list[Salle], liste_cours: list[Cours]):
     """
     Trouve une salle disponible pour une date commune avec une capacité suffisante pour accueillir tous les invités
     ainsi que le matériel nécessaire pour le cours.
@@ -45,7 +45,7 @@ def TrouverSalle(liste_salles: list[Salle], ListeCours: list[Cours]):
     """
     # on créé un dictionnaire pour stocker les salles dispo selon les cours
     dict_salles = {}  # cours en clé et les salles en valeurs
-    for cours in ListeCours:
+    for cours in liste_cours:
         dict_salles[cours] = []
         dispo = Calendrier.DisponibilitesCommunes(cours.eleves, cours.professeur)
         creneaux_communs = CreneauxCommuns(dispo, cours)
@@ -65,10 +65,9 @@ def TrouverSalle(liste_salles: list[Salle], ListeCours: list[Cours]):
             for creneau in creneaux_communs:
                 # on garde les créneaux communs (prof/élèves) qui sont aussi disponibles dans le calendrier de cette salle
                 if all(
-                    not c.strftime("%Y-%m-%d %H:%M") in salle.calendrier
-                    for c in creneau
+                    salle.calendrier[salle.nom][creneau[i].strftime("%Y-%m-%d %H:%M")]["Disponibilité"] 
+                    for i in range(len(creneau)) if creneau[i].strftime("%Y-%m-%d %H:%M") in salle.calendrier[salle.nom]
                 ):
-
                     dict_salles[cours].append((salle, creneau))
 
     def ChoisirSalle(dict_salles: dict):
@@ -126,3 +125,36 @@ def TrouverSalle(liste_salles: list[Salle], ListeCours: list[Cours]):
 
     resp = ChoisirSalle(dict_salles)
     return resp
+
+if __name__ == "__main__":
+    import json
+    from Professeur import Professeur
+    from Eleve import Eleve
+    eleves = ["Alice", "Bob", "Charlie"]
+    
+    cal_eleve_link = "ressources/calendrier_eleves.json"
+    cal_profs_link = "ressources/calendrier_profs.json"
+    cal_salles_link = "ressources/calendrier_salles.json"
+    with open(cal_eleve_link, "r", encoding="utf-8") as f:
+        calendrier_eleves = Calendrier(json.load(f))
+    with open(cal_profs_link, "r", encoding="utf-8") as f:
+        calendrier_profs = Calendrier(json.load(f))
+    with open(cal_salles_link, "r", encoding="utf-8") as f:
+        calendrier_salles = Calendrier(json.load(f))
+    eleves1 = [
+        Eleve("Faosto"),
+        Eleve("Phoebus")
+    ]
+    eleves2 = [
+        Eleve("Faosto"),
+        Eleve("Thomas")
+    ]
+    professeur = Professeur("Gledel")
+    besoins_materiel1 = {"Projecteur": True, "Ordinateurs": False}
+    besoins_materiel2 = {"Projecteur": True, "Ordinateurs": True}
+    cours1 = Cours(nom ="Maths", eleves = eleves1, professeur=professeur, materiel=besoins_materiel1, duree=timedelta(hours=1))
+    cours2 = Cours(nom ="Physique", eleves = eleves2, professeur=professeur, materiel=besoins_materiel2, duree=timedelta(hours=1))
+    liste_cours = [cours1, cours2]
+    liste_salles = [Salle(salle) for salle in calendrier_salles.keys()]
+    salle_choisie = TrouverSalle(liste_salles=liste_salles, liste_cours=liste_cours)
+    print(f"Salles choisies pour les cours : {salle_choisie}")

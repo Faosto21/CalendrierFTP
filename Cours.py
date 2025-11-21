@@ -45,6 +45,31 @@ class Cours:
                         "Disponibilité": False,
                         "Caractéristique": cours.nom,
                     }
+    @staticmethod
+    def rentrer_cours(resultats):
+        for cours, val in resultats.items(): # on n'itere pas sur (salle, creneaux) car peut être None
+            if not val:
+                continue
+            salle, creneaux = val
+            for creneau in creneaux:
+                key = creneau.strftime("%Y-%m-%d %H:%M")
+                # marque professeur occupé
+                cours.professeur.calendrier[key] = {
+                    "Disponibilité": False,
+                    "Caractéristique": cours.nom,
+                }
+                # marque salle occupée (dict structuré)
+                salle.calendrier[key] = {
+                    "Disponibilité": False,
+                    "Caractéristique": cours.nom,
+                    "Capacité": getattr(salle, "capacite", None),
+                }
+                # marque élèves occupés
+                for eleve in cours.eleves:
+                    eleve.calendrier[key] = {
+                        "Disponibilité": False,
+                        "Caractéristique": cours.nom,
+                    }
 
     @staticmethod
     def afficher_choix(resultats: dict):
@@ -58,8 +83,20 @@ class Cours:
         frame = ttk.Frame(win)
         frame.pack(pady=5)
 
-        for cours, (salle, creneau) in resultats.items():
-            text = f"{cours.nom} → Salle: {salle.nom}, Heure de début: {creneau[0].strftime("%Y-%m-%d %H:%M")},Heure de fin: {(creneau[-1]+timedelta(minutes=30)).strftime("%Y-%m-%d %H:%M")}"
+        for cours, val in resultats.items():
+            if not val:
+                ttk.Label(
+                    frame,
+                    text=f"{cours.nom} → Aucun créneau disponible",
+                    font=("Arial", 12, "italic"),
+                ).pack(anchor="w")
+                continue
+            salle, creneau_list = val
+            start = creneau_list[0].strftime("%Y-%m-%d %H:%M")
+            end = (creneau_list[-1] + timedelta(minutes=30)).strftime(
+                "%Y-%m-%d %H:%M"
+            )
+            text = f"{cours.nom} → Salle: {getattr(salle, 'nom', repr(salle))}, Heure de début: {start}, Heure de fin: {end}"
             ttk.Label(frame, text=text, font=("Arial", 12)).pack(anchor="w")
 
         def approve_and_close():
