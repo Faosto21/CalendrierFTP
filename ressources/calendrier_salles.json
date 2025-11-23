@@ -1,0 +1,32 @@
+{
+    "Salle1": {
+        "2025-11-24 08:00": {
+            "Disponibilité": true,
+            "Caractéristique": {
+                "Ordinateurs": false,
+                "Projecteur": true
+            },
+            "Capacité": 30
+        }
+    },
+    "Salle2": {
+        "2025-11-24 08:00": {
+            "Disponibilité": false,
+            "Caractéristique": {
+                "Ordinateurs": true,
+                "Projecteur": false
+            },
+            "Capacité": 30
+        }
+    },
+    "Salle3": {
+        "2025-11-24 08:00": {
+            "Disponibilité": true,
+            "Caractéristique": {
+                "Ordinateurs": true,
+                "Projecteur": true
+            },
+            "Capacité": 30
+        }
+}
+}
