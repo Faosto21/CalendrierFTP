@@ -42,19 +42,20 @@ class Cours:
                 # marque professeur occupé
                 cours.professeur.calendrier[key] = {
                     "Disponibilité": False,
-                    "Caractéristique": cours.nom,
+                    "Occupation": cours.nom,
                 }
                 # marque salle occupée (dict structuré)
                 salle.calendrier[key] = {
                     "Disponibilité": False,
-                    "Caractéristique": cours.nom,
+                    "Occupation": cours.nom,
+                    "Caractéristique": salle.caracteristiques,
                     "Capacité": getattr(salle, "capacite", None),
                 }
                 # marque élèves occupés
                 for eleve in cours.eleves:
                     eleve.calendrier[key] = {
                         "Disponibilité": False,
-                        "Caractéristique": cours.nom,
+                        "Occupation": cours.nom,
                     }
 
     @staticmethod

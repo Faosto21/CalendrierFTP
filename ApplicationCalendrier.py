@@ -62,8 +62,8 @@ class ApplicationCalendrier:
             for c, d in enumerate(jours):
                 key = f"{d.strftime('%Y-%m-%d')} {slot}"
                 if key in dico and not dico[key]["Disponibilité"]:
-                    if not dico[key]["Caractéristique"] == {}:
-                        self.sheet.set_cell_data(r, c, dico[key]["Caractéristique"])
+                    if not dico[key]["Occupation"] == {}:
+                        self.sheet.set_cell_data(r, c, dico[key]["Occupation"])
                     else:
                         self.sheet.set_cell_data(r, c, "Occupé")
 
